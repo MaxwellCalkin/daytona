@@ -32,7 +32,7 @@ func SearchFiles(c *gin.Context) {
 		return
 	}
 
-	var matches []string
+	matches := make([]string, 0)
 	err := filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return filepath.SkipDir
